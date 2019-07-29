@@ -4,4 +4,4 @@ The game code is based on coursera MSU course, noobtuts, brackeys with game menu
 
 Elements:  Full menu system with level selections template. Character controller that works with desktop, mobile and WebGL controls. Simple level creation process. Arts and music included. 
 
-Feel free to use this project, would be cool if you can help me modify it and upgrade it.
+Feel free to use this project and modify it to suit your needs.
