@@ -90,17 +90,19 @@ public class PlayerController : MonoBehaviour
             {
                 //Check the axis values for horizontal and vertical movements
                 //Also check the boundaries for the level before moving 
-                if ((CrossPlatformInputManager.GetAxisRaw("Vertical") > 0 || m_Direction == Direction.Up) && transform.position.y <= 5.5)
+                if ((CrossPlatformInputManager.GetAxisRaw("Vertical") > 0 || m_Direction == Direction.Up) && Math.Round(transform.position.y) <= 5.5)
                     m_Move = Vector2.up; //Up
 
-                else if ((CrossPlatformInputManager.GetAxisRaw("Horizontal") > 0 || m_Direction == Direction.Right) && transform.position.x <= 3)
+                else if ((CrossPlatformInputManager.GetAxisRaw("Horizontal") > 0 || m_Direction == Direction.Right) && Math.Round(transform.position.x) <= 3)
                     m_Move = Vector2.right; //Right
 
-                else if ((CrossPlatformInputManager.GetAxisRaw("Vertical") < 0 || m_Direction == Direction.Down) && transform.position.y >= -4.5)
+                else if ((CrossPlatformInputManager.GetAxisRaw("Vertical") < 0 || m_Direction == Direction.Down) && Math.Round(transform.position.y) >= -4.5)
                     m_Move = -Vector2.up; //Down
 
-                else if ((CrossPlatformInputManager.GetAxisRaw("Horizontal") < 0 || m_Direction == Direction.Left) && transform.position.x >= -3)
+                else if ((CrossPlatformInputManager.GetAxisRaw("Horizontal") < 0 || m_Direction == Direction.Left) && Math.Round(transform.position.x) >= -3)
                     m_Move = -Vector2.right;//Left
+               
+                    Debug.Log(m_Move.ToString());
             }
         }
 
