@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     //Default level time
     public float levelTime = 30;
 
+    //Test
+    public float extraFuel;
+
     //Game music audio clip
     public AudioClip gameMusicAudioClip;
 
@@ -47,6 +50,10 @@ public class GameManager : MonoBehaviour
 
     //Pause button button
     public GameObject pauseBtn;
+
+    //Ads button
+    private Button watchVideoAdBtn;
+    private Button fuelRewardBtn;
 
     void Awake()
     {
@@ -73,6 +80,7 @@ public class GameManager : MonoBehaviour
     //Setup all startup game stuff
     public void Setup()
     {
+
         //Indicate that gameFinsihed is false
         gameFinished = false;
 
@@ -101,6 +109,8 @@ public class GameManager : MonoBehaviour
 
         //Save that this level has been accessed so the MainMenu can enable it
         PlayerPrefManager.UnlockLevel();
+
+
     }
 
     //Start the gameplay objects and flags
@@ -113,7 +123,7 @@ public class GameManager : MonoBehaviour
         txtJewels.gameObject.SetActive(true);
 
         //Play level music
-        PlayMusic(gameMusicAudioClip);
+        PlayMusic(gameMusicAudioClip); 
     }
 
     // Update is called once per frame
@@ -166,6 +176,13 @@ public class GameManager : MonoBehaviour
 
         //Make sure to hide pause panel
         pauseBtn.SetActive(false);
+
+        //Find and addlistener to watchvideoadbtn
+        watchVideoAdBtn = GameObject.Find("BtnVideoAd").GetComponent<Button>();
+        watchVideoAdBtn.onClick.AddListener(AdManager.instance.ShowStandardVideoAd);
+
+        fuelRewardBtn = GameObject.Find("BtnVideoRewardAd").GetComponent<Button>();
+        fuelRewardBtn.onClick.AddListener(AdManager.instance.ShowRewardedFuelVideoAd);
     }
 
     //Enable the Exit game object when all jewels are collected

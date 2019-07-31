@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
                 else if ((CrossPlatformInputManager.GetAxisRaw("Horizontal") < 0 || m_Direction == Direction.Left) && Math.Round(transform.position.x) >= -3)
                     m_Move = -Vector2.right;//Left
                
-                    Debug.Log(m_Move.ToString());
+                
             }
         }
 
